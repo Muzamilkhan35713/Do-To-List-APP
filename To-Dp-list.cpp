@@ -1,12 +1,11 @@
-#include <iostream>
+include <iostream>
 #include <string>
 #include <vector>
 
 using namespace std;
 int index;
 string newtask;
- 
-class todolist {
+ class todolist {
 public:
     vector<string> task;
 
@@ -22,9 +21,16 @@ public:
     
 
     void view() {
+    if (task.size()==0)
+         {
+          cout << "you don't add any task." << endl;
+         }
+         else
+         {
         cout << "Tasks:" << endl;
         for (int i = 0; i < task.size(); i++) {
-            cout << task[i] << endl;
+            cout << task[i] <<" ";
+            }
         }
     };
 
@@ -49,11 +55,13 @@ public:
 };
 
 int main() {
+    cout << "****************To-Do-List-APP***************" << endl;
     int choose;
     todolist obj;
 
     while (true) {
         cout << "1. Add task\n2. View\n3. Delete\n4. update task\n5. Exit\n";
+           cout << "\n Enter your choice: ";
         cin >> choose;
 
         switch (choose) {
@@ -61,12 +69,12 @@ int main() {
          int n;
             
           int size;
-            cout << "How many tasks do you want to add? ";
+            cout << "How many tasks do you want to add : ";
             cin >> size;
             obj.add(size);
             break;
         case 2:
-            obj.view();
+        obj.view();
             break;
         case 3:
             
@@ -87,5 +95,8 @@ int main() {
             cout << "Program Exit" << endl;
             return 0;
         }
+        cout << endl;
+        
     }
 }
+    
